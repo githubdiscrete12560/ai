@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar for MDPs: Interactive Exercises</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Set Inter font -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom styles for feedback */
+        .solution {
+            color: #fde047; /* yellow-300 */
+            font-style: italic;
+            font-size: 0.9em;
+            margin-top: 4px;
+            display: none; /* Hidden by default */
+        }
+        .feedback {
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-left: 8px;
+            display: none; /* Hidden by default */
+        }
+        .correct {
+            color: #4ade80; /* green-400 */
+        }
+        .incorrect {
+            color: #f87171; /* red-400 */
+        }
+        input[type="text"] {
+            width: 100%;
+        }
+        .exercise-prompt {
+            color: #e2e8f0; /* slate-200 */
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-300 antialiased min-h-screen p-4 md:p-8">
+
+    <div class="max-w-3xl mx-auto">
+        <header class="mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">Grammar for MDPs: Interactive Exercises</h1>
+            <p class="text-lg text-blue-300">Practice describing the "Student MDP" using English grammar.</p>
+        </header>
+
+        <!-- Lesson 1 Section -->
+        <section class="bg-slate-800 rounded-lg shadow-xl p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-white mb-4 border-b border-slate-700 pb-2">Lesson 1: Present Simple & Possibilities</h2>
+            
+            <!-- Grammar Explanation -->
+            <div class="bg-slate-900/50 rounded-md p-4 mb-6 space-y-3">
+                <p><strong class="text-blue-300">Present Simple Tense:</strong> We use this for facts, habits, or things that are generally true. In our MDP, this is perfect for describing the "rules" of the world.</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>Example: "When the student <strong class="text-green-400">studies</strong>, they <strong class="text-green-400">become</strong> tired." (This is a rule)</li>
+                </ul>
+                <p><strong class="text-blue-300">Can / Could for Possibilities:</strong> We use "can" to talk about ability or what is possible *now*. We use "could" to talk about a *possible future* outcome (it's often used for things that are not 100% certain).</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>"From the Rested state, the student <strong class="text-green-400">can</strong> study." (It is an available action)</li>
+                    <li>"If you study, you <strong class="text-green-400">could</strong> go to the exam." (It's a possible, but not guaranteed, result)</li>
+                </ul>
+            </div>
+
+            <!-- Exercise 1.2 -->
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold text-white mb-3">Exercise 1.2: Sentence Building</h3>
+                <p class="text-sm text-slate-400 mb-4">Use the present simple tense (Pattern: "When the student [verb], they [result]").</p>
+                <div class="space-y-4">
+                    <div>
+                        <p class="exercise-prompt">When the student browses / become tired</p>
+                        <input type="text" id="ex-1-2-1" class="bg-slate-700 text-white rounded-md border-slate-600 focus:ring-blue-500 focus:border-blue-500" placeholder="Type your answer...">
+                        <div id="solution-1-2-1" class="solution"></div>
+                    </div>
+                    <div>
+                        <p class="exercise-prompt">When the student sleeps / become rested</p>
+                        <input type="text" id="ex-1-2-2" class="bg-slate-700 text-white rounded-md border-slate-600 focus:ring-blue-500 focus:border-blue-500" placeholder="Type your answer...">
+                        <div id="solution-1-2-2" class="solution"></div>
+                    </div>
+                    <div>
+                        <p class="exercise-prompt">When the student is prepared / take the exam</p>
+                        <input type="text" id="ex-1-2-3" class="bg-slate-700 text-white rounded-md border-slate-600 focus:ring-blue-500 focus:border-blue-500" placeholder="Type your answer...">
+                        <div id="solution-1-2-3" class="solution"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 1.3 -->
+            <div>
+                <h3 class="text-xl font-semibold text-white mb-3">Exercise 1.3: Can/Could for Possibilities</h3>
+                <p class="text-sm text-slate-400 mb-4">Complete using "can" or "could".</p>
+                <div class="space-y-4">
+                    <div>
+                        <p class="exercise-prompt">From the rested state, the student <input type="text" id="ex-1-3-1" class="bg-slate-700 text-white rounded-md border-slate-600 w-24 mx-1"> study or browse.
+                            <span id="feedback-1-3-1" class="feedback"></span>
+                        </p>
+                        <div id="solution-1-3-1" class="solution"></div>
+                    </div>
+                    <div>
+                        <p class="exercise-prompt">If you are tired, you <input type="text" id="ex-1-3-2" class="bg-slate-700 text-white rounded-md border-slate-600 w-24 mx-1"> sleep to recover.
+                            <span id="feedback-1-3-2" class="feedback"></span>
+                        </p>
+                        <div id="solution-1-3-2" class="solution"></div>
+                    </div>
+                    <div>
+                        <p class="exercise-prompt">After studying, you <input type="text" id="ex-1-3-3" class="bg-slate-700 text-white rounded-md border-slate-600 w-24 mx-1"> go directly to the exam (20% chance).
+                            <span id="feedback-1-3-3" class="feedback"></span>
+                        </p>
+                        <div id="solution-1-3-3" class="solution"></div>
+                    </div>
+                     <div>
+                        <p class="exercise-prompt">The student <input type="text" id="ex-1-3-4" class="bg-slate-700 text-white rounded-md border-slate-600 w-24 mx-1"> not take any actions from the exam state.
+                            <span id="feedback-1-3-4" class="feedback"></span>
+                        </p>
+                        <div id="solution-1-3-4" class="solution"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson 2 Section -->
+        <section class="bg-slate-800 rounded-lg shadow-xl p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-white mb-4 border-b border-slate-700 pb-2">Lesson 2: Conditionals & Logic</h2>
+
+            <!-- Grammar Explanation -->
+            <div class="bg-slate-900/50 rounded-md p-4 mb-6 space-y-3">
+                <p><strong class="text-blue-300">Zero Conditional (Facts / 100% Certainty):</strong> Used for rules that are *always* true.</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>Pattern: <code class="bg-slate-700 px-1 rounded">If + present simple, ... present simple</code></li>
+                    <li>Example: "If you <strong class="text-green-400">sleep</strong>, you <strong class="text-green-400">become</strong> rested." (p=1.0)</li>
+                </ul>
+                <p><strong class="text-blue-300">First Conditional (Probable Future):</strong> Used for a likely or possible future outcome.</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>Pattern: <code class="bg-slate-700 px-1 rounded">If + present simple, ... will + verb</code></li>
+                    <li>Example: "If you <strong class="text-green-400">study</strong>, you <strong class="text-green-400">will probably become</strong> tired."</li>
+                </ul>
+                 <p><strong class="text-blue-300">Expressing Cause and Effect:</strong></p>
+                <ul class="list-disc list-inside ml-4">
+                    <li><strong class="text-green-400">Therefore:</strong> Shows a result. (Cause, <strong class="text-green-400">therefore</strong>, Effect)</li>
+                    <li><strong class="text-green-400">Because:</strong> Shows a reason. (Effect <strong class="text-green-400">because</strong> Cause)</li>
+                </ul>
+            </div>
+
+            <!-- Exercise 2.1 -->
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold text-white mb-3">Exercise 2.1: Zero Conditional (100% Probability)</h3>
+                <div class="space-y-4">
+                    <div>
+                        <p class="exercise-prompt">Sleep → Rested (p=1.0)</p>
+                        <p class="exercise-prompt"><input type="text" id="ex-2-1-1" class="bg-slate-700 text-white rounded-md border-slate-600 w-48 inline-block" placeholder="If ...">, you become rested.</p>
+                        <div id="solution-2-1-1" class="solution"></div>
+                    </div>
+                    <div>
+                        <p class="exercise-prompt">Browse (when rested) → Tired (p=1.0)</p>
+                        <input type="text" id="ex-2-1-2" class="bg-slate-700 text-white rounded-md border-slate-600" placeholder="Type your full sentence...">
+                        <div id="solution-2-1-2" class="solution"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 2.2 -->
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold text-white mb-3">Exercise 2.2: First Conditional with Probability</h3>
+                <div class="space-y-4">
+                    <div>
+                        <p class="exercise-prompt">Study (when rested) → Tired (p=0.8)</p>
+                        <p class="exercise-prompt">If you study when rested, <input type="text" id="ex-2-2-1" class="bg-slate-700 text-white rounded-md border-slate-600" placeholder="..."></p>
+                        <div id="solution-2-2-1" class="solution"></div>
+                    </div>
+                    <div>
+                        <p class="exercise-prompt">Study (when rested) → Exam (p=0.2)</p>
+                        <p class="exercise-prompt">If you study when rested, <input type="text" id="ex-2-2-2" class="bg-slate-700 text-white rounded-md border-slate-600" placeholder="..."></p>
+                        <div id="solution-2-2-2" class="solution"></div>
+                    </div>
+                    <div>
+                        <p class="exercise-prompt">Browse (when tired) → Stay Tired (p=0.9)</p>
+                        <input type="text" id="ex-2-2-3" class="bg-slate-700 text-white rounded-md border-slate-600" placeholder="Type your full sentence...">
+                        <div id="solution-2-2-3" class="solution"></div>
+                    </div>
+                    <div>
+                        <p class="exercise-prompt">Browse (when tired) → Exam (p=0.1)</p>
+                        <input type="text" id="ex-2-2-4" class="bg-slate-700 text-white rounded-md border-slate-600" placeholder="Type your full sentence...">
+                        <div id="solution-2-2-4" class="solution"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 2.3 -->
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold text-white mb-3">Exercise 2.3: Cause and Effect</h3>
+                <p class="text-sm text-slate-400 mb-4">Connect using "because" or "therefore".</p>
+                <div class="space-y-4">
+                    <div>
+                        <p class="exercise-prompt">Studying is hard work → You become tired</p>
+                        <input type="text" id="ex-2-3-1" class="bg-slate-700 text-white rounded-md border-slate-600" placeholder="Type your answer...">
+                        <div id="solution-2-3-1" class="solution"></div>
+                    </div>
+                    <div>
+                        <p class="exercise-prompt">You browse instead of study → You waste time</p>
+                        <input type="text" id="ex-2-3-2" class="bg-slate-700 text-white rounded-md border-slate-600" placeholder="Type your answer...">
+                        <div id="solution-2-3-2" class="solution"></div>
+                    </div>
+                    <div>
+                        <p class="exercise-prompt">You sleep for 8 hours → You feel rested</p>
+                        <input type="text" id="ex-2-3-3" class="bg-slate-700 text-white rounded-md border-slate-600" placeholder="Type your answer...">
+                        <div id="solution-2-3-3" class="solution"></div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Exercise 2.4 -->
+            <div>
+                <h3 class="text-xl font-semibold text-white mb-3">Exercise 2.4: Complex Conditionals</h3>
+                <p class="text-sm text-slate-400 mb-4">Write full sentences: "If the student is in [state] and takes action [action], then [result] with probability [p]."</p>
+                <div class="space-y-4">
+                    <div>
+                        <p class="exercise-prompt">Rested + Study → Tired (0.8)</p>
+                        <input type="text" id="ex-2-4-1" class="bg-slate-700 text-white rounded-md border-slate-600" placeholder="Type your answer...">
+                        <div id="solution-2-4-1" class="solution"></div>
+                    </div>
+                    <div>
+                        <p class="exercise-prompt">Tired + Browse → Exam (0.1)</p>
+                        <input type="text" id="ex-2-4-2" class="bg-slate-700 text-white rounded-md border-slate-600" placeholder="Type your answer...">
+                        <div id="solution-2-4-2" class="solution"></div>
+                    </div>
+                    <div>
+                        <p class="exercise-prompt">Tired + Sleep → Rested (1.0)</p>
+                        <input type="text" id="ex-2-4-3" class="bg-slate-700 text-white rounded-md border-slate-600" placeholder="Type your answer...">
+                        <div id="solution-2-4-3" class="solution"></div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Check Answers Button -->
+        <div class="text-center my-10">
+            <button id="check-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-200 ease-in-out transform hover:scale-105">
+                Check My Answers
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        // --- Model Answer Key ---
+        const solutions = {
+            '1-2-1': "When the student browses, they become tired.",
+            '1-2-2': "When the student sleeps, they become rested.",
+            '1-2-3': "When the student is prepared, they take the exam.",
+            '1-3-1': { accepted: ['can'], solution: "can (It is an available action)" },
+            '1-3-2': { accepted: ['can', 'could'], solution: "can / could (Both are fine here)" },
+            '1-3-3': { accepted: ['could', 'can', 'might'], solution: "could (Best for a future possibility) / can / might" },
+            '1-3-4': { accepted: ['can', 'cannot'], solution: "cannot (Or 'can not')" },
+            '2-1-1': { accepted: ['if you sleep'], solution: "If you sleep" },
+            '2-1-2': "If you browse when rested, you become tired.",
+            '2-2-1': "there is an 80% chance that you will become tired. (or 'you will probably become tired.')",
+            '2-2-2': "there is a 20% chance that you will go to the exam. (or 'you might go to the exam.')",
+            '2-2-3': "If you browse when tired, there is a 90% chance that you will stay tired.",
+            '2-2-4': "If you browse when tired, you might go to the exam (10% chance).",
+            '2-3-1': "Studying is hard work, therefore you become tired.",
+            '2-3-2': "You browse instead of study, therefore you waste time.",
+            '2-3-3': "You sleep for 8 hours, therefore you feel rested.",
+            '2-4-1': "If the student is in the Rested state and takes the action Study, then they will become Tired with probability 0.8.",
+            '2-4-2': "If the student is in the Tired state and takes the action Browse, then they will go to the Exam with probability 0.1.",
+            '2-4-3': "If the student is in the Tired state and takes the action Sleep, then they will become Rested with probability 1.0.",
+        };
+
+        // --- Check Answers Functionality ---
+        document.getElementById('check-btn').addEventListener('click', () => {
+            // --- Helper Function ---
+            const checkAnswer = (id, simpleValidate = false) => {
+                const inputEl = document.getElementById(`ex-${id}`);
+                const solutionEl = document.getElementById(`solution-${id}`);
+                const feedbackEl = document.getElementById(`feedback-${id}`);
+                
+                const userAnswer = inputEl.value.trim().toLowerCase();
+                const model = solutions[id];
+                
+                solutionEl.style.display = 'block';
+
+                if (simpleValidate && model.accepted) {
+                    // --- Simple Validation (Fill-in-the-blank) ---
+                    const isCorrect = model.accepted.includes(userAnswer);
+                    
+                    if (feedbackEl) {
+                        feedbackEl.style.display = 'inline';
+                        if (isCorrect) {
+                            feedbackEl.textContent = 'Correct!';
+                            feedbackEl.className = 'feedback correct';
+                        } else {
+                            feedbackEl.textContent = 'Check answer';
+                            feedbackEl.className = 'feedback incorrect';
+                        }
+                    }
+                    solutionEl.textContent = `Model Answer: ${model.solution}`;
+                    
+                } else {
+                    // --- Complex Validation (Show Model Answer) ---
+                    solutionEl.textContent = `Model Answer: ${model}`;
+                }
+            };
+
+            // --- Run Checks for All Exercises ---
+            
+            // Exercise 1.2
+            checkAnswer('1-2-1');
+            checkAnswer('1-2-2');
+            checkAnswer('1-2-3');
+
+            // Exercise 1.3 (Simple Validation)
+            checkAnswer('1-3-1', true);
+            checkAnswer('1-3-2', true);
+            checkAnswer('1-3-3', true);
+            checkAnswer('1-3-4', true);
+
+            // Exercise 2.1
+            checkAnswer('2-1-1', true);
+            checkAnswer('2-1-2');
+
+            // Exercise 2.2
+            checkAnswer('2-2-1');
+            checkAnswer('2-2-2');
+            checkAnswer('2-2-3');
+            checkAnswer('2-2-4');
+
+            // Exercise 2.3
+            checkAnswer('2-3-1');
+            checkAnswer('2-3-2');
+            checkAnswer('2-3-3');
+            
+            // Exercise 2.4
+            checkAnswer('2-4-1');
+            checkAnswer('2-4-2');
+            checkAnswer('2-4-3');
+        });
+    </script>
+
+</body>
+</html>
